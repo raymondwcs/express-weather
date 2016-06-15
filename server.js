@@ -3,6 +3,7 @@ async = require('async');
 
 var express = require('express');
 var app = express();
+var APIKEY = "";  // signup at api.openweathermap.org and obtain an API Key
 
 var options = {
     host: 'api.openweathermap.org',
@@ -22,7 +23,7 @@ app.get('/weather',function(req,res) {
 	var city = req.query.city;
 	console.log("City: " + city);
 	//options.path = "/data/2.5/weather?q=" + city + "&units=metric";
-	options.path = "/data/2.5/weather?q=" + city.replace(/ /g,"+") + "&units=metric";
+	options.path = "/data/2.5/weather?q=" + city.replace(/ /g,"+") + "&units=metric" + APIKEY;
 	async.waterfall(
 	[
    		function getTemperature(callback) {
