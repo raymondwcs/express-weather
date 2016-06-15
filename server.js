@@ -23,7 +23,7 @@ app.get('/weather',function(req,res) {
 	var city = req.query.city;
 	console.log("City: " + city);
 	//options.path = "/data/2.5/weather?q=" + city + "&units=metric";
-	options.path = "/data/2.5/weather?q=" + city.replace(/ /g,"+") + "&units=metric" + APIKEY;
+	options.path = "/data/2.5/weather?q=" + city.replace(/ /g,"+") + "&units=metric&APPID=" + APIKEY;
 	async.waterfall(
 	[
    		function getTemperature(callback) {
