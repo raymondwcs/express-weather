@@ -1,11 +1,17 @@
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <head>
 	<title>World Weather</title>
 </head>
 <body>
-<H1>Weahter of <%= city %></H1>
-<ul>
-	<li>Temperature: <%= temperature %></li>
+<div class="w3-container">
+	<H2>Weather of <%= city %></H2>
+</div>
+<ul class="w3-ul">
+	<li>Current Temperature: <%= currTemp %></li>
+	<li>Max Temperature: <%= maxTemp %></li>
+	<li>Min Temperature: <%= minTemp %></li>
 	<li>Humidity: <%= humidity %></li>
 </ul>
 </body>
