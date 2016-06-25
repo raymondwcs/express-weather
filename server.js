@@ -32,6 +32,9 @@ app.get('/weather',function(req,res) {
 
        			wres.on('data', function (chunk) {
            			var jsonObj = JSON.parse(chunk);
+					if (!jsonObj.hasOwnProperty("main")) {
+						jsonObj.main = 'N/A';
+					}
            			console.log("Current Temp. : " + jsonObj.main.temp);
            			console.log("Max Temp : "      + jsonObj.main.temp_max);
            			console.log("Min Temp : "      + jsonObj.main.temp_min);
@@ -39,6 +42,8 @@ app.get('/weather',function(req,res) {
            			callback(null,
 					         city,
 					         jsonObj.main.temp,
+					         jsonObj.main.temp_max,
+					         jsonObj.main.temp_min,
 					         jsonObj.main.humidity,
 					         res);
        			});
@@ -52,9 +57,11 @@ app.get('/weather',function(req,res) {
        		wreq.end();
    		},
 
-   		function(city,temperature,humidity,res,callback) {
+   		function(city,currTemp,maxTemp,minTemp,humidity,res,callback) {
 			res.render('weather', {city: city,
-			                       temperature: temperature,
+			                       currTemp: currTemp,
+			                       maxTemp: maxTemp,
+			                       minTemp: minTemp,
 			                       humidity: humidity});
        		callback(null);
    		}
