@@ -1,5 +1,4 @@
 http = require('http');
-async = require('async');
 
 var express = require('express');
 var app = express();
@@ -11,7 +10,6 @@ var options = {
     path: '/data/2.5/weather?q=Tokyo,jp&units=metric',
     method: 'GET'
 };
-
 
 app.set('view engine', 'ejs');
 
@@ -28,7 +26,6 @@ app.get('/weather',function(req,res) {
 			data.city = city.toUpperCase();
 			res.render('weather', data);
 	}); 
-
 }); // end of app.get()
 
 app.listen(process.env.PORT || 8099);
@@ -63,7 +60,6 @@ function getTemperature(callback) {
    		});
 
 		wres.on('end',function(chunk) {
-			//callback({city: city,
 			callback({currTemp: currTemp,
 			          maxTemp: maxTemp,
 			          minTemp: minTemp,
