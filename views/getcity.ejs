@@ -1,27 +1,34 @@
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+</html>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>World Weather</title>
+  <title>World Weather</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-	<div class="w3-container">
-		<h2>World Weather</h2>
-		<form class="w3-container" action="/weather" method="get">
-			<label class="w3-label">City</label>
-			<select class="w3-select" name="city">
-				<option value="Tokyo">Tokyo</option>
+
+<div class="container">
+  <h2>World Weather</h2>
+  <form class="form-inline" action="/weather" method="GET">
+    <div class="form-group">
+      <label for="sel1">City:</label>
+      <select class="form-control" id="city" name="city">
+			  <option value="Tokyo">Tokyo</option>
 				<option value="Osaka">Osaka</option>
 				<option value="Fukuoka">Fukuoka</option>
 				<option value="Hong Kong">Hong Kong</option>
 				<option value="New York">New York</option>
 				<option value="Chicago">Chicago</option>
-    		</select>
-			<p><button class="w3-btn">Search</button></p>
-		</form>
-	</div>
-</body>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
 
+</body>
 </html>
