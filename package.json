@@ -5,6 +5,6 @@
 	"dependencies": {
 		"express": "*",
 		"ejs": "*",
-		"async": "*"
+		"cors": "*"
 	}
 }
