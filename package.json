@@ -8,4 +8,7 @@
 		"cors": "*",
 		"node-fetch": "*"
 	}
+	"scripts": {
+		"start": "node server.js"
+	}
 }
