@@ -1,6 +1,7 @@
 const http = require('http');
 const cors = require('cors');
 const express = require('express');
+const fetch = require('node-fetch');
 
 const app = express();
 const APIKEY = "";  //signup at api.openweathermap.org and obtain an API Key

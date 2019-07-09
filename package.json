@@ -7,7 +7,7 @@
 		"ejs": "*",
 		"cors": "*",
 		"node-fetch": "*"
-	}
+	},
 	"scripts": {
 		"start": "node server.js"
 	}
