@@ -9,8 +9,8 @@
 		"node-fetch": "*"
 	},
 	"engines": {
-		"node" : ">=8.0.0",
-		"npm" : ">=6.0.0"
+		"node": ">=8.0.0",
+		"npm": ">=6.0.0"
 	},
 	"scripts": {
 		"start": "node server.js"
