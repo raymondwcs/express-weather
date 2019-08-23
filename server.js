@@ -4,7 +4,7 @@ const express = require('express');
 const fetch = require('node-fetch');
 
 const app = express();
-const APIKEY = "";  //signup at api.openweathermap.org and obtain an API Key
+const APIKEY = "7727b06835cae96ec5597a5c246869fc";  //signup at api.openweathermap.org and obtain an API Key
 
 var options = {
     host: 'api.openweathermap.org',
@@ -17,14 +17,14 @@ app.use(cors());
 
 app.set('view engine', 'ejs');
 
-app.get('/', function(req,res) {
+app.get('/', (req,res) => {
 	res.render('getcity');
 });
 
-app.get('/weather',function(req,res) {
+app.get('/weather',(req,res) => {
 	var city = req.query.city;
 
-	console.log("City: " + city);
+	console.log(`City: ${city}`);
 	setOptionPath(city);
 	getWeatherDetails().then(data => {
     	data.city = city.toUpperCase();
@@ -32,10 +32,10 @@ app.get('/weather',function(req,res) {
    })
 });
 
-app.get('/api/weather',function(req,res) {
+app.get('/api/weather',(req,res) => {
 	var city = req.query.city;
 
-	console.log("City: " + city);
+	console.log(`City: ${city}`);
 	setOptionPath(city);
 	getWeatherDetails().then(data => {
     	res.end.json(data);
@@ -44,7 +44,7 @@ app.get('/api/weather',function(req,res) {
 
 app.listen(process.env.PORT || 8099);
 
-function setOptionPath(city) {
+const setOptionPath = (city) => {
 	options.path = "/data/2.5/weather?q=" + city.replace(/ /g,"+") + "&units=metric&APPID=" + APIKEY;
 }
 
