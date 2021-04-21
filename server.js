@@ -50,13 +50,11 @@ app.get('/api/weather/:city', (req, res) => {
       })
 })
 
-app.listen(process.env.PORT || 8099);
-
 const setOptionPath = (city) => {
    options.path = "/data/2.5/weather?q=" + city.replace(/ /g, "+") + "&units=metric&APPID=" + APIKEY;
 }
 
-async function getWeatherDetails() {
+const getWeatherDetails = async () => {
    const res = await fetch(`http://${options.host}/${options.path}`);
    const data = await res.json();
 
@@ -72,3 +70,5 @@ async function getWeatherDetails() {
       humidity: humidity
    });
 }
+
+app.listen(process.env.PORT || 8099);
