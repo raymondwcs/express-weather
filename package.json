@@ -3,9 +3,9 @@
 	"description": "World Weather",
 	"version": "0.0.2",
 	"dependencies": {
-		"express": "*",
-		"ejs": "*",
 		"cors": "*",
+		"ejs": "*",
+		"express": "*",
 		"node-fetch": "*"
 	},
 	"engines": {
