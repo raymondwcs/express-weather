@@ -26,20 +26,28 @@ app.get('/weather', (req, res) => {
 
    console.log(`City: ${city}`);
    setOptionPath(city);
-   getWeatherDetails().then(data => {
-      data.city = city.toUpperCase();
-      res.render('weather', data);
-   })
+   getWeatherDetails()
+      .then(data => {
+         data.city = city.toUpperCase();
+         res.render('weather', data);
+      })
+      .catch(error => {
+         res.status(500).end(error.message)
+      })
 });
 
-app.get('/api/weather', (req, res) => {
-   var city = req.query.city;
+app.get('/api/weather/:city', (req, res) => {
+   var city = req.params.city;
 
    console.log(`City: ${city}`);
    setOptionPath(city);
-   getWeatherDetails().then(data => {
-      res.end.json(data);
-   })
+   getWeatherDetails()
+      .then(data => {
+         res.json(data);
+      })
+      .catch(error => {
+         res.status(500).end(error.message)
+      })
 })
 
 app.listen(process.env.PORT || 8099);
